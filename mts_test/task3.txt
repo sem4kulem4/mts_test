@@ -1,0 +1,39 @@
+3. Написать запросы к приведенным таблицам на PostgreSQL
+
+create table department (id integer primary key, name varchar);
+create table employee (
+    id integer primary key,
+    department_id integer references department(id), 
+    chief_id integer references employee(id), 
+    name varchar, 
+    salary numeric
+    );
+
+
+A. Вывести список сотрудников, получающих заработную плату большую чем у непосредственного руководителя
+
+SELECT * FROM employee AS workers, employee AS bosses WHERE bosses.id = workers.chief_id AND workers.salary > bosses.salary;
+
+B. Вывести список сотрудников, получающих максимальную заработную плату в своем отделе
+
+SELECT * FROM employee AS workers WHERE workers.salary = (
+    SELECT MAX(salary) FROM employee AS max WHERE max.department_id = workers.department_id
+    );
+
+C. Вывести список ID отделов, количество сотрудников в которых не превышает 3 человек
+
+SELECT department_id FROM employee GROUP BY department_id HAVING COUNT(*) <= 3;
+
+D. Вывести список сотрудников, не имеющих назначенного непосредственного руководителя, работающего в том-же отделе
+
+SELECT * FROM employee AS workers 
+LEFT JOIN employee AS bosses ON (workers.chief_id = bosses.Id AND workers.department_id = bosses.department_id)
+WHERE bosses.id IS NULL;
+
+E. Вывести список ID отделов с максимальной суммарной зарплатой сотрудников
+
+WITH department_salary AS 
+	(SELECT department_id, sum(salary) AS salary
+	FROM employee 
+	GROUP BY department_id)
+SELECT department_id FROM department_salary WHERE department_salary.salary = (SELECT max(salary) FROM department_salary);
