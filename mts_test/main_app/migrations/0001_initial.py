@@ -4,38 +4,60 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='ModelA',
+            name="ModelA",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('a_one', models.CharField(max_length=200)),
-                ('a_two', models.CharField(max_length=200)),
-                ('a_three', models.CharField(max_length=200)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("a_one", models.CharField(max_length=200)),
+                ("a_two", models.CharField(max_length=200)),
+                ("a_three", models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
-            name='ModelB',
+            name="ModelB",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('b_one', models.CharField(max_length=200)),
-                ('b_two', models.CharField(max_length=200)),
-                ('b_three', models.CharField(max_length=200)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("b_one", models.CharField(max_length=200)),
+                ("b_two", models.CharField(max_length=200)),
+                ("b_three", models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
-            name='ModelC',
+            name="ModelC",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('c_one', models.CharField(max_length=200)),
-                ('c_two', models.CharField(max_length=200)),
-                ('c_three', models.CharField(max_length=200)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("c_one", models.CharField(max_length=200)),
+                ("c_two", models.CharField(max_length=200)),
+                ("c_three", models.CharField(max_length=200)),
             ],
         ),
     ]

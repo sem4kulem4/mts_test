@@ -1,17 +1,12 @@
-from django.urls import path, include
-from rest_framework import routers
+from django.urls import path
 
-from .views import ModelAList, ModelBList, ModelCList
+from .views import ModelAView, ModelBView, ModelCView
 
-app_name = 'main_app'
 
-# router = routers.DefaultRouter()
-# router.register("model_a", ModelAList, basename="model_a")
-# router.register("model_b", ModelBList, basename="model_b")
-# router.register("model_c", ModelCList, basename="model_c")
+app_name = "main_app"
 
 urlpatterns = [
-    path("model_a/", ModelAList.as_view()),
-    path("model_b/", ModelBList.as_view()),
-    path("model_c/", ModelCList.as_view()),
+    path("modela/", ModelAView.as_view(), name="model_a"),
+    path("modelb/", ModelBView.as_view(), name="model_b"),
+    path("modelc/", ModelCView.as_view(), name="model_c"),
 ]
