@@ -11,7 +11,7 @@ class ContextQuerysetMixin:
     fields = "__all__"
     context_object_name = "model_data"
     template_name = "main_app/models_form.html"
-    paginate_by = 2
+    paginate_by = 10
     fields_order = tuple()  # порядок вывода столбцов
 
     def get_queryset(self) -> QuerySet:
