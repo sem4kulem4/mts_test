@@ -3,7 +3,7 @@ from django.db import models
 
 class ModelA(models.Model):
     class Meta:
-        ordering = ['id']
+        ordering = ["id"]
 
     a_one = models.CharField(max_length=200, blank=True)
     a_two = models.CharField(max_length=200, blank=True)
@@ -15,8 +15,8 @@ class ModelA(models.Model):
 
 class ModelB(models.Model):
     class Meta:
-        ordering = ['id']
-    
+        ordering = ["id"]
+
     b_one = models.CharField(max_length=200, blank=True)
     b_two = models.CharField(max_length=200, blank=True)
     b_three = models.CharField(max_length=200, blank=True)
@@ -27,7 +27,7 @@ class ModelB(models.Model):
 
 class ModelC(models.Model):
     class Meta:
-        ordering = ['id']
+        ordering = ["id"]
 
     c_one = models.CharField(max_length=200, blank=True)
     c_two = models.CharField(max_length=200, blank=True)

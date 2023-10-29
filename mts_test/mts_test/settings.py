@@ -3,8 +3,10 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "django-insecure-*=afp7!=(+5x$4kgk(+5gj=#==79it5aaw9q)w-re6(n!zj2^("
-
+SECRET_KEY = os.getenv(
+    "SECRET_KEY",
+    default="django-insecure-*=afp7!=(+5x$4kgk(+5gj=#==79it5aaw9q)w-re6(n!zj2^("
+)
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -65,7 +67,9 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+        ),
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
